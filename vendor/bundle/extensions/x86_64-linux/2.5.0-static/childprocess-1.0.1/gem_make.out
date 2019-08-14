@@ -1,0 +1,5 @@
+current directory: /home/vagrant/rails_lessons/kaji_app/kaji_app/vendor/bundle/gems/childprocess-1.0.1/ext
+/home/vagrant/.rbenv/versions/2.5.3/bin/ruby mkrf_conf.rb
+
+current directory: /home/vagrant/rails_lessons/kaji_app/kaji_app/vendor/bundle/gems/childprocess-1.0.1/ext
+/home/vagrant/.rbenv/versions/2.5.3/bin/ruby -rrubygems /home/vagrant/rails_lessons/kaji_app/kaji_app/vendor/bundle/gems/rake-12.3.3/exe/rake RUBYARCHDIR=/home/vagrant/rails_lessons/kaji_app/kaji_app/vendor/bundle/extensions/x86_64-linux/2.5.0-static/childprocess-1.0.1 RUBYLIBDIR=/home/vagrant/rails_lessons/kaji_app/kaji_app/vendor/bundle/extensions/x86_64-linux/2.5.0-static/childprocess-1.0.1
