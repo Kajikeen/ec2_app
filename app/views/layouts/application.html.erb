@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>KajiApp</title>
+    <title>SampleApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,7 +12,7 @@
   <body>
     <header>
       <div class="header-logo">
-        <a href="/">KajiApp</a>
+        <a href="/">SampleApp</a>
       </div>
       <ul class="header-menus">
         <li>
@@ -24,8 +24,19 @@
         <li>
           <%= link_to("新規投稿","/posts/new") %>
         </li>
+        <li>
+          <%= link_to("ユーザー一覧","/users/index") %>
+        </li>
+        <li>
+          <%= link_to("新規登録","/signup") %>
+        </li>
       </ul>
     </header>
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
