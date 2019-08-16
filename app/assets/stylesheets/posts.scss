@@ -39,8 +39,23 @@
   display: inline;
 }
 
+.posts-show-title {
+  padding: 30px;
+  margin: 20px;
+  background-color: white;
+  font-size: 200%;
+  box-shadow: 0 2px 6px #c1ced7;
+  overflow: hidden;
+}
+
+.post_show_userimage{
+  width: 60px;
+  height: 60px;
+}
+
 .posts-show-item {
   padding: 30px;
+  margin: 20px;
   background-color: white;
   box-shadow: 0 2px 6px #c1ced7;
   overflow: hidden;
