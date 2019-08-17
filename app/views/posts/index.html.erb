@@ -8,9 +8,9 @@
         </div>
         <div class="post-right">
           <div class="post-user-name">
-            <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+            投稿者：<%= link_to(post.user.name, "/users/#{post.user.id}") %>
           </div>
-          <%= link_to(post.title ,"/posts/#{post.id}") %>
+          タイトル：<%= link_to(post.title ,"/posts/#{post.id}") %>
         </div>
       </div>
     <% end %>

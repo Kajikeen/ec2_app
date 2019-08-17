@@ -7,12 +7,18 @@
         <p><%= @user.email %></p>
         <%= link_to("編集", "/users/#{@user.id}/edit") %>
       <% end %>
+      <% if @user.id == @current_user.id %>
+        <%= link_to("編集", "/users/#{@user.id}/edit") %>
+      <% end %>
     </div>
+
     <ul class="user-tabs">
-      <li class="active"><%= link_to("投稿したもの", "/users/#{@user.id}") %></li>
-      <li><%= link_to("いいね!したもの", "/users/#{@user.id}/likes") %></li>
+      <li><%= link_to("投稿したもの", "/users/#{@user.id}") %></li>
+      <li class="active"><%= link_to("いいね!したもの", "/users/#{@user.id}/likes") %></li>
     </ul>
-    <% @user.posts.each do |post| %>
+
+    <% @likes.each do |like| %>
+      <% post = Post.find_by(id: like.post_id) %>
       <div class="posts-index-item">
         <div class="post-left">
           <img src="<%= "/user_images/#{post.user.image_name}" %>">
@@ -21,7 +27,7 @@
           <div class="post-user-name">
             <%= link_to(post.user.name, "/users/#{post.user.id}") %>
           </div>
-          <%= link_to(post.title, "/posts/#{post.id}") %>
+          <%= link_to(post.content, "/posts/#{post.id}") %>
         </div>
       </div>
     <% end %>

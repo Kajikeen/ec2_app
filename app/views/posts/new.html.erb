@@ -10,9 +10,11 @@
             </div>
           <% end %>
           <p>問題タイトル</p>
-          <input name="title"><%= @post.title %></input>
-          <p>本文</p>
+          <input name="title" value="<%= @post.title %>"></input>
+          <p>問題文</p>
           <textarea name="content"><%= @post.content %></textarea>
+          <p>答え</p>
+          <textarea name="answer"><%= @post.answer %></textarea>
           <input type="submit" value="投稿">
         </div>
       </div>
