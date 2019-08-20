@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  post "questions/:post_id/create" => "questions#create"
+  post "questions/:post_id/good_create" => "questions#good_create"
+  post "questions/:post_id/good_destroy" => "questions#good_destroy"
+
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
 
@@ -12,6 +16,7 @@ Rails.application.routes.draw do
   post "logout" => "users#logout"
   get "login" => "users#login_form"
   get "users/:id/likes" => "users#likes"
+  get "users/:id/questions" => "users#questions"
 
   get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"

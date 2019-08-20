@@ -85,6 +85,11 @@ class UsersController < ApplicationController
     @likes = Like.where(user_id: @user.id)
   end
 
+  # def questions
+  #   @user = User.find_by(id: params[:id])
+  #   @questions = Question.where(user_id: @user.id)
+  # end
+
   def ensure_current_user
     if @current_user.id != params[:id].to_i
       flash[:notice] = "権限がありません"

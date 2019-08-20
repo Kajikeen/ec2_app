@@ -8,10 +8,12 @@
         <%= link_to("編集", "/users/#{@user.id}/edit") %>
       <% end %>
     </div>
+
     <ul class="user-tabs">
-      <li class="active"><%= link_to("投稿したもの", "/users/#{@user.id}") %></li>
-      <li><%= link_to("いいね!したもの", "/users/#{@user.id}/likes") %></li>
+      <li class="active"><%= link_to("投稿した問題", "/users/#{@user.id}") %></li>
+      <li><%= link_to("いいね!した問題", "/users/#{@user.id}/likes") %></li>
     </ul>
+
     <% @user.posts.each do |post| %>
       <div class="posts-index-item">
         <div class="post-left">

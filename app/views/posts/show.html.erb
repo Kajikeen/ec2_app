@@ -3,42 +3,94 @@
     <div class="post-user-name">
       <img class="post_show_userimage" src="<%= "/user_images/#{@user.image_name}" %>">
       <%= link_to(@user.name, "/users/#{@user.id}") %>
-    </div>
-    <div class="posts-show-title">
-      <p>
-        <%= @post.title %>
-      </p>
-    </div>
-    <div class="posts-show-item">
-      <p>
-        <%= @post.content %>
-      </p>
-    </div>
-    <div class="posts-show-item">
-      <p>
-        <%= @post.answer %>
-      </p>
-    </div>
-    <div class="posts-show-item">
-      <div class="post-time">
-        <%= @post.created_at %>
-      </div>
-      <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
-        <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
-          <span class="fa fa-heart like-btn-unlike">良問！</span>
-        <% end %>
-      <% else %>
-        <%= link_to("/likes/#{@post.id}/create",{method:"post"}) do %>
-        <span class="fa fa-heart like-btn">良問！</span>
-        <% end %>
-      <% end %>
-      <%= @likes_count %>
-      <% if @post.user_id == @current_user.id %>
-        <div class="post-menus">
-          <%= link_to("編集", "/posts/#{@post.id}/edit") %>
-          <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+      <div class="posts-show-info">
+        <div class="post-time">
+          <%= @post.created_at %>
         </div>
-      <% end %>
+        <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+          <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+            <span class="fa fa-heart like-btn-unlike">良問！</span>
+          <% end %>
+        <% else %>
+          <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+            <span class="fa fa-heart like-btn">良問！</span>
+          <% end %>
+        <% end %>
+        <%= @likes_count %>
+        <% if @post.user_id == @current_user.id %>
+          <div class="post-menus">
+            <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+            <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+          </div>
+        <% end %>
+      </div>
     </div>
+
+
+      <p class="posts-title">タイトル</p>
+        <div class="posts-show-title">
+          <p>
+            <%= @post.title %>
+          </p>
+        </div>
+      <p>問題文</p>
+      <div class="posts-show-item">
+        <p>
+          <%= @post.content %>
+        </p>
+      </div>
+    <p>質問する（出題者が回答するまで表示されません）</p>
+    <%= form_tag("/questions/#{@post.id}/create") do %>
+      <div class="form posts-show-item">
+        <div class="form-body">
+          <% @question.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
+          <input name="content" value="<%= @question.content %>"></input>
+          <input type="submit" value="質問！" autocomplete="off">
+        </div>
+      </div>
+    <% end %>
+
+    <p>投稿された質問（出題者が回答したもののみ表示）</p>
+        <% if @post.user_id == @current_user.id %>
+          <% @question_view.each do |question| %>
+            <div class="posts-show-question">
+              <div class="post-right">
+                <p>
+                  <%= question.content %>
+                </p>
+                 <!--回答-->
+                  <div class="answer"><%= question.answer %></div>
+                 <!--質問評価-->
+                  <div class="good"><%= question.good %></div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <% @question_view_user.each do |question| %>
+                <div class="posts-show-question">
+                  <div class="post-right">
+                    <p>
+                      <%= question.content %>
+                    </p>
+                     <!--回答-->
+                      <div class="answer"><%= question.answer %></div>
+                     <!--質問評価-->
+                      <div class="good"><%= question.good %></div>
+                  </div>
+                </div>
+              <% end %>
+      <% end %>
+    <input id="acd-check1" class="acd-check" type="checkbox">
+    <label class="acd-label" for="acd-check1">▼解答を表示▼</label>
+      <div class="posts-show-item acd-content">
+        <p>
+          <%= @post.answer %>
+        </p>
+      </div>
+
   </div>
 </div>

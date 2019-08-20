@@ -1,0 +1,38 @@
+current directory: /home/vagrant/rails_lessons/kaji_app/vendor/bundle/ruby/2.5.0/gems/puma-3.9.1/ext/puma_http11
+/home/vagrant/.rbenv/versions/2.5.3/bin/ruby -r ./siteconf20190819-4596-mka36u.rb extconf.rb
+checking for BIO_read() in -lcrypto... yes
+checking for SSL_CTX_new() in -lssl... yes
+checking for openssl/bio.h... yes
+creating Makefile
+
+current directory: /home/vagrant/rails_lessons/kaji_app/vendor/bundle/ruby/2.5.0/gems/puma-3.9.1/ext/puma_http11
+make "DESTDIR=" clean
+
+current directory: /home/vagrant/rails_lessons/kaji_app/vendor/bundle/ruby/2.5.0/gems/puma-3.9.1/ext/puma_http11
+make "DESTDIR="
+compiling http11_parser.c
+ext/puma_http11/http11_parser.rl: In function ‘puma_parser_execute’:
+ext/puma_http11/http11_parser.rl:111: 警告: 符合付きと符合無しの整数式同士の比較です
+トップレベル:
+cc1: 警告: unrecognized command line option "-Wno-self-assign"
+cc1: 警告: unrecognized command line option "-Wno-constant-logical-operand"
+cc1: 警告: unrecognized command line option "-Wno-parentheses-equality"
+cc1: 警告: unrecognized command line option "-Wno-tautological-compare"
+compiling io_buffer.c
+compiling mini_ssl.c
+mini_ssl.c: In function ‘engine_init_server’:
+mini_ssl.c:153: 警告: ISO C90 forbids mixed declarations and code
+mini_ssl.c:158: 警告: ISO C90 forbids mixed declarations and code
+mini_ssl.c:180: 警告: ISO C90 forbids mixed declarations and code
+mini_ssl.c:184: 警告: ISO C90 forbids mixed declarations and code
+トップレベル:
+cc1: 警告: unrecognized command line option "-Wno-self-assign"
+cc1: 警告: unrecognized command line option "-Wno-constant-logical-operand"
+cc1: 警告: unrecognized command line option "-Wno-parentheses-equality"
+cc1: 警告: unrecognized command line option "-Wno-tautological-compare"
+compiling puma_http11.c
+linking shared-object puma/puma_http11.so
+
+current directory: /home/vagrant/rails_lessons/kaji_app/vendor/bundle/ruby/2.5.0/gems/puma-3.9.1/ext/puma_http11
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20190819-4596-15a1vjo/puma

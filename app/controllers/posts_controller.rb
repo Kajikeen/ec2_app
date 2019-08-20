@@ -10,7 +10,18 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @user = @post.user
     @likes_count = Like.where(post_id: @post.id).count
-  end
+    @question = Question.new(
+      content: params[:content]
+    )
+    @question_view = Question.where(
+      post_id: @post.id,
+    )
+    @question_view_user = Question.where(
+      post_id: @post.id,
+      answer:["YES!","NO!"],
+    )
+    @good = Question.find_by(id: params[:id])
+    end
 
   def new
     @post = Post.new
@@ -37,7 +48,9 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find_by(id: params[:id])
+    @post.title = params[:title]
     @post.content = params[:content]
+    @post.answer = params[:answer]
     if @post.save
       flash[:notice] = "変更しました"
       redirect_to("/posts/index")

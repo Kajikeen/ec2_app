@@ -7,15 +7,16 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
   <body>
     <header>
       <div class="header-logo">
         <% if @current_user %>
-          <%= link_to("SampleApp", "/posts/index") %>
+          <%= link_to("うみがめのすーぷ", "/posts/index") %>
         <% else %>
-          <%= link_to("SampleApp", "/") %>
+          <%= link_to("うみがめのすーぷ", "/") %>
         <% end %>
       </div>
       <ul class="header-menus">
