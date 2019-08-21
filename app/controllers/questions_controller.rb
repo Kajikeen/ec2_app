@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
       content: params[:content],
       user_id: @current_user.id,
       post_id: params[:post_id],
-      good: "※出題者未回答"
+      good: ""
     )
     if @question.save
       flash[:notice] = "投稿しました"
@@ -20,6 +20,24 @@ class QuestionsController < ApplicationController
       flash[:notice] = "投稿失敗"
       redirect_to("/posts/#{params[:post_id]}")
     end
+  end
+
+  def yes
+    @question = Question.find_by(
+      id: params[:id]
+    )
+    @question.answer = "YES!"
+    @question.save
+    redirect_to("/posts/#{params[:post_id]}")
+  end
+
+  def no
+    @question = Question.find_by(
+      id: params[:id]
+      )
+    @question.answer = "NO!"
+    @question.save
+    redirect_to("/posts/#{params[:post_id]}")
   end
 
 end
