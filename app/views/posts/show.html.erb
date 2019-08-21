@@ -62,14 +62,12 @@
                 </p>
                  <!--回答-->
                   <div class="answer"><%= question.answer %></div>
-                 <!--質問評価-->
-                  <div class="good"><%= question.good %></div>
               </div>
                 <%= link_to("/questions/#{question.id}/yes", {method: "post"}) do %>
-                  <span class="fa fa-heart like-btn-unlike">YES!!</span>
+                  <span class="fa fa-heart like-btn-unlike yesno">YES!!</span>
                 <% end %>
                 <%= link_to("/questions/#{question.id}/no", {method: "post"}) do %>
-                  <span class="fa fa-heart like-btn">NO...</span>
+                  <span class="fa fa-heart like-btn yesno">NO...</span>
                 <% end %>
             </div>
             <% end %>
@@ -82,8 +80,6 @@
                     </p>
                      <!--回答-->
                       <div class="answer"><%= question.answer %></div>
-                     <!--質問評価-->
-                      <div class="good"><%= question.good %></div>
                   </div>
                 </div>
           <% end %>

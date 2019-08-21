@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
       content: params[:content],
       user_id: @current_user.id,
       post_id: params[:post_id],
-      good: ""
+      good: "A"
     )
     if @question.save
       flash[:notice] = "投稿しました"
