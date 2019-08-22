@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
       content: params[:content],
       user_id: @current_user.id,
       post_id: params[:post_id],
-      good: "A"
+      good: "　"
     )
     if @question.save
       flash[:notice] = "投稿しました"
@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
     )
     @question.answer = "YES!"
     @question.save
-    redirect_to("/posts/#{params[:post_id]}")
+    redirect_to post_path(params[:id])
   end
 
   def no
@@ -37,7 +37,7 @@ class QuestionsController < ApplicationController
       )
     @question.answer = "NO!"
     @question.save
-    redirect_to("/posts/#{params[:post_id]}")
+    redirect_to post_path(params[:id])
   end
 
 end
